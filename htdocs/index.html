@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/main.css">
+    <link href="/fontawesome/css/all.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="navbar">
+        <span id="nav-today" nav_target="today" class="navbar-item navbar-item-selected templated">Today
+            ({{date_readable()}})</span>
+        <span id="nav-tasks" nav_target="tasks" class="navbar-item">Task List</span>
+        <span id="nav-meals" nav_target="meals" class="navbar-item">Meal Plan</span>
+        <span id="nav-recipes" nav_target="recipes" class="navbar-item">Recipe Book</span>
+    </div>
+
+    <div id="view-today" class="view view-active">
+        <div id="dinner-template" class="card templated">
+            <div class="card-header">
+                <span class="fas fa-utensils" style="padding-right: 1rem;"></span> Dinner: {{meals.today.recipe_name}}
+                (<span class="link">view
+                    recipe</span>)
+            </div>
+        </div>
+        <div id="task-template" class="card templated-multi" multi_source="tasks">
+            <div class="card-header">
+                <span class="fas fa-thumbtack" style="padding-right: 1rem;"></span> To Do: {{multi.name}}
+            </div>
+            <div class="card-body">
+                {{multi.description}}<br>
+                <div class="button button-confirm" onclick="delete_task('{{multi.id}}')">Complete</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="view-tasks" class="view">
+        <div id="task-editor-template" class="card templated-multi" multi_source="tasks">
+            <div class="card-header">
+                <span class="fas fa-thumbtack" style="padding-right: 1rem;"></span> To Do: <span
+                    id="task-header-{{multi.id}}" oninput="update_task('{{multi.id}}')"
+                    contenteditable>{{multi.name}}</span>
+            </div>
+            <div class="card-body">
+                <div id="task-description-{{multi.id}}" oninput="update_task('{{multi.id}}')" contenteditable>
+                    {{multi.description}}
+                </div>
+                <div class="button button-cancel" onclick="delete_task('{{multi.id}}')">Delete</div>
+            </div>
+        </div>
+        <div id="add-task-button" class="card-body" onclick="add_task()">
+            <div class="button button-confirm"><span class="fas fa-plus"></span> Add</div>
+        </div>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>

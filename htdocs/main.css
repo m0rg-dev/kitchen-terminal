@@ -1,0 +1,79 @@
+#navbar {
+    height: 35px;
+    margin: 0.25rem;
+    padding: 0;
+    display: flex;
+    font-size: 20px;
+    background-color: #fdf6e3;
+    color: #586e75;
+    border-radius: 5px;
+    font-size: 150%;
+}
+
+.navbar-item {
+    margin: auto 0.75rem;
+    cursor: pointer;
+}
+
+.navbar-item-selected {
+    color: #6c71c4;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #002b36;
+    color: #93a1a1;
+    line-height: 1.5;
+}
+
+.card {
+    background-color: #073642;
+    margin: 0.25rem;
+    padding: 1rem;
+    border-radius: 5px;
+    width: auto;
+}
+
+.card-header {
+    font-size: 150%;
+}
+
+.card-body {
+    padding-left: 3rem;
+}
+
+.link {
+    color: #268bd2;
+    cursor: pointer;
+}
+
+.button {
+    padding: 0.25rem 0.5rem;
+    display: inline-block;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-confirm {
+    background-color: #859900;
+    color: #fdf6e3;
+}
+
+.button-modify {
+    background-color: #268bd2;
+    color: #fdf6e3;
+}
+
+.button-cancel {
+    background-color: #dc322f;
+    color: #fdf6e3;
+}
+
+.view {
+    display: none;
+}
+
+.view-active {
+    display: block;
+}
